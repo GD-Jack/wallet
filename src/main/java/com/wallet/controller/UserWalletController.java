@@ -32,7 +32,7 @@ public class UserWalletController {
         return userWalletService.getUserWallet(userId);
     }
 
-    @GetMapping("/consume")
+    @PostMapping ("/consume")
     @ResponseBody
     public JSONObject consume(@RequestParam("userId") int userId){
         UserWallet userWallet = userWalletService.getUserWallet(userId);
@@ -54,7 +54,7 @@ public class UserWalletController {
         return message;
     }
 
-    @GetMapping("/refund")
+    @PostMapping("/refund")
     @ResponseBody
     @Transactional(rollbackFor = Exception.class)
     public JSONObject refund(@RequestParam("userId") int userId) throws Exception {
